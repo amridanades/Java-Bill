@@ -17,14 +17,14 @@ import java.util.logging.Logger;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-         boolean running = true;
-        String answer;
+        boolean running = true;             //variabel untuk aplikasi tetap berjalan
+        String answer;                      // variabel untuk menu keluar
         
-        while(running){
-            InputStreamReader isr = new InputStreamReader(System.in);
+        while(running){                        
+            InputStreamReader isr = new InputStreamReader(System.in);        //input 
             BufferedReader input = new BufferedReader(isr);
 
-            Bill bill = new Bill();
+            Bill bill = new Bill();             //object 
           
             System.out.print("Amount : ");
              
@@ -32,18 +32,18 @@ public class Main {
                 do{
                    
                     try {
-                        bill.amount = Double.parseDouble(input.readLine());
-                        valid = false;
+                        bill.amount = Double.parseDouble(input.readLine());  //input tagihan
+                        valid = false;          
                     } catch (NumberFormatException nfe) {
                         System.out.println("Harus angka");
                         valid = true;
                     }
                 }while(valid); 
                 
-            System.out.print("Kode Promo : ");
+            System.out.print("Kode Promo : ");     
             try {
                
-                bill.Promo(input.readLine());
+                bill.Promo(input.readLine());       //input kode promo
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -53,7 +53,7 @@ public class Main {
                 System.out.println("Kode promo tidak tersedia");
             }
             System.out.println("Discount : "+ bill.disc + "%");
-            System.out.printf("Amount yang harus Dibayar : %.2f \n", bill.TotAmount());
+            System.out.printf("Amount yang harus Dibayar : %.2f \n", bill.TotAmount());    
             
             System.out.println("----------------------------------------------------------------------");
             System.out.println("Apakah anda ingin keluar? ");
