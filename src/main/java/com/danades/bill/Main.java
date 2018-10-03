@@ -26,19 +26,19 @@ public class Main {
 
             Bill bill = new Bill();             //object 
           
-            System.out.print("Amount : ");
-             
-            boolean valid;
+            int valid = 1; 
+            bill.amount = 0;
                 do{
-                   
+                    System.out.print("Amount : ");
                     try {
-                        bill.amount = Double.parseDouble(input.readLine());  //input tagihan
-                        valid = false;          
+                        bill.amount = Double.parseDouble(input.readLine());
+                        if ((10000000 < bill.amount) || (bill.amount < 5000)){
+                            System.out.println("harus angka 5000 - 10000000");
+                        }
                     } catch (NumberFormatException nfe) {
-                        System.out.println("Harus angka");
-                        valid = true;
+                        System.out.println("Harus angka");            
                     }
-                }while(valid); 
+                }while((10000000 < bill.amount) || (bill.amount < 5000)); 
                 
             System.out.print("Kode Promo : ");     
             try {

@@ -14,7 +14,7 @@ public class Bill {
     public double totDisc;          // variabel total diskon 
     public int disc;                // variabel jumlah diskon cth 20%
     
-    String[][] kodePromo = {        // variabel kode promo dan diskon
+    public String[][] kodePromo = {        // variabel kode promo dan diskon
     {"New Year","5"},
     {"lebaran","10"},
     {"harbolnas","20"}
@@ -24,14 +24,14 @@ public class Bill {
        return this.totDisc = (discount/100) * amount;
     }
      
-    double Promo(String promoCode){                     //method menghitung promo berdasarkan kode promo
-        String a = promoCode;
+    public double Promo(String promoCode){                     //method menghitung promo berdasarkan kode promo
+        String promoCode1 = promoCode;
         for (String[] kodePromo1 : kodePromo) {
-            String b = kodePromo1[0];
-            if (a.equalsIgnoreCase(b)) { 
-                int c = Integer.parseInt(kodePromo1[1]);
-                this.disc = c;
-                return Discount(c);
+            String promoCode2 = kodePromo1[0];
+            if (promoCode1.equalsIgnoreCase(promoCode2)) { 
+                int discVal = Integer.parseInt(kodePromo1[1]);
+                this.disc = discVal;
+                return Discount(discVal);
             }           
         }
          return Discount(0);
